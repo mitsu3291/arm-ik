@@ -1,5 +1,7 @@
 import math
-from PathMaker import PathMaker
+import sys
+sys.path.append('..')
+from utils.PathMaker import PathMaker
 from Robot import Robot
 from Plotter import Plotter
 
@@ -18,7 +20,6 @@ class AnaliticalIk:
         alpha = math.acos((self.x_ref**2 + self.y_ref**2 - self.l1**2 - self.l2**2)/(2*self.l1*self.l2))
         beta = math.acos((self.x_ref**2 + self.y_ref**2 + self.l1**2 - self.l2**2)/(2*self.l1*math.sqrt(self.x_ref**2 + self.y_ref**2)))
         q1 = math.atan2(self.y_ref, self.x_ref) + beta
-        #q2 = math.pi - alpha
         q2 = math.atan2(self.y_ref - self.l1*math.sin(q1), self.x_ref - self.l1*math.cos(q1)) - q1
 
         return q1, q2
