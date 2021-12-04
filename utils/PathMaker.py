@@ -20,6 +20,14 @@ class PathMaker:
 
         return circle_path
 
+    def make_sin_curve(self, x_start, x_last, offset, N):
+        x_list = np.linspace(x_start, x_last, N)
+        y_list = np.sin(x_list) + offset
+        sin_curve_path = np.dstack([x_list, y_list])
+
+        return sin_curve_path
+
 if __name__ == "__main__":
     path_maker = PathMaker()
-    path_maker.make_circle(0,0,1,-math.pi/2, math.pi/2, 3)
+    sin_curve_path = path_maker.make_sin_curve(-math.pi, math.pi, 1, 5)
+    print(sin_curve_path)

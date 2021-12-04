@@ -25,8 +25,8 @@ class Plotter:
 
         def update(i):
             ax.cla() # ax をクリア
-            ax.set_xlim(-0.5,2.0)
-            ax.set_ylim(-1.5,1.5)
+            ax.set_xlim(-4,4)
+            ax.set_ylim(-1.5,4)
             ax.plot([0, self.j1x_list[i], self.j2x_list[i], self.j3x_list[i]], [0, self.j1y_list[i], self.j2y_list[i], self.j3y_list[i]], color="m")
             ax.scatter(0,0, color="m")
             ax.scatter(self.j1x_list[i], self.j1y_list[i], color="m")
@@ -44,7 +44,7 @@ def simple_plot(x1, y1, x2, y2, x3, y3, x_ref, y_ref):
     fig = plt.figure()
     ax = fig.add_subplot(111, aspect="equal")
     ax.set_xlim(-0.5,2.0)
-    ax.set_ylim(-1.5,1.5)
+    ax.set_ylim(-1.5,3)
     ax.plot([0, x1, x2, x3], [0, y1, y2, y3], color="m")
     ax.scatter(0,0, color="m")
     ax.scatter(x1, y1, color="m")
